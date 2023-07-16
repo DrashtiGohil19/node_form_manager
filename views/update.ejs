@@ -1,0 +1,65 @@
+<h3>Update details</h3>
+
+<form method="post">
+    <table>
+        <% results.forEach(function(update){ 
+            const myArray = update.hobby.split(",");
+        %>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="<%= update.name %>"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email" value="<%= update.email %>"/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password" value="<%= update.password %>"/></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" name="gender" value="male" <% if(update.gender== "male"){%> checked <% }%>/>Male
+                <input type="radio" name="gender" value="female" <% if(update.gender== "female"){%> checked <% }%>/>Female
+            </td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td><input type="number" name="contact" value="<%= update.contact %>"/></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" name="address" value="<%= update.address %>"/></td>
+        </tr>
+        <tr>
+            <td>Select city</td>
+            <td>
+                <select name="city">
+                    <option selected>--Select city--</option>
+                    <option value="surat" <% if(update.city== "surat"){%> selected <% }%> >Surat</option>
+                    <option value="vadodara" <% if(update.city== "vadodara"){%> selected <% }%>>Vadodara</option>
+                    <option value="bhavanagar" <% if(update.city== "bhavanagar"){%> selected <% }%>>Bhavanagar</option>
+                    <option value="navsari" <% if(update.city== "navsari"){%> selected <% }%>>Navsari</option>
+                    <option value="vapi" <% if(update.city== "vapi"){%> selected <% }%>>Vapi</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Dob</td>
+            <td><input type="date" name="dob" value="<%= update.dob %>"/></td>
+        </tr>
+        <tr>
+            <td>Hobby</td>
+            <td><input type="checkbox"name="hobby" value="cricket" <% if (myArray.includes("cricket")==true) {%> checked <%} %> />Cricket
+                <input type="checkbox" name="hobby" value="hockey" <% if (myArray.includes("hockey")==true) {%> checked <%} %> />Hockey
+                <input type="checkbox" name="hobby" value="reading" <% if (myArray.includes("reading")==true) {%> checked <%} %> />Reading
+                <input type="checkbox" name="hobby" value="movie" <% if (myArray.includes("movie")==true) {%> checked <%} %> />Movie
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" name="submit">submit</button></td>
+        </tr>
+        <% }); %>
+    </table>
+</form>

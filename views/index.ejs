@@ -1,0 +1,117 @@
+<form method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" name="gender" value="male"/>Male
+                <input type="radio" name="gender" value="female"/>Female
+            </td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td><input type="number" name="contact"/></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" name="address"/></td>
+        </tr>
+        <tr>
+            <td>Select city</td>
+            <td>
+                <select name="city">
+                    <option selected>--Select city--</option>
+                    <option value="surat">Surat</option>
+                    <option value="vadodara">Vadodara</option>
+                    <option value="bhavanagar">Bhavanagar</option>
+                    <option value="navsari">Navsari</option>
+                    <option value="vapi">Vapi</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Dob</td>
+            <td><input type="date" name="dob"/></td>
+        </tr>
+        <tr>
+            <td>Hobby</td>
+            <td><input type="checkbox"name="hobby" value="cricket"/>Cricket
+                <input type="checkbox" name="hobby" value="hockey"/>Hockey
+                <input type="checkbox" name="hobby" value="reading"/>Reading
+                <input type="checkbox" name="hobby" value="movie"/>Movie
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" name="submit">submit</button></td>
+        </tr>
+    </table>
+</form>
+
+
+<table border>
+    <tr>
+        <td>id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Gender</td>
+        <td>Contact</td>
+        <td>Address</td>
+        <td>City</td>
+        <td>Dob</td>
+        <td>Hobby</td>
+        <td>Delete</td>
+        <td>Update</td>
+    </tr>
+    <% results.forEach(function(u) { %>
+        <tr>
+            <td>
+                <%= u.id %>
+            </td>
+            <td>
+                <%= u.name %>
+            </td>
+            <td>
+                <%= u.email %>
+            </td>
+            <td>
+                <%= u.password %>
+            </td>
+            <td>
+                <%= u.gender %>
+            </td>
+            <td>
+                <%= u.contact %>
+            </td>
+            <td>
+                <%= u.address %>
+            </td>
+            <td>
+                <%= u.city %>
+            </td>
+            <td>
+                <%= u.dob %>
+            </td>
+            <td>
+                <%= u.hobby %>
+            </td>
+            <td>
+                <a href="delete/<%= u.id %>">Delete</a>
+            </td>
+            <td>
+                <a href="update/<%= u.id %>">Update</a>
+            </td>
+        </tr>
+        <% }); %>
+</table>
